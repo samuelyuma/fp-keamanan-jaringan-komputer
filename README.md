@@ -108,6 +108,8 @@ interface f1/0 # A4 (Lantai7 & Lantai9 via Switch2)
 ip route 0.0.0.0 0.0.0.0 192.168.1.81 # Default ke DPTSI
 ip route 192.168.1.72 255.255.255.252 192.168.1.81 # Ke A1 (via DPTSI)
 ip route 192.168.1.76 255.255.255.252 192.168.1.81 # Ke A2 (via DPTSI)
+ip route 192.168.0.0 255.255.255.0 192.168.1.66 # Ke A5 (via Lantai7)
+ip route 192.168.1.0 255.255.255.192 192.168.1.67 # Ke A6 (via Lantai9)
 ```
 
 **Lantai7**
@@ -159,21 +161,15 @@ iface eth0 inet static
         netmask 255.255.255.252
         gateway 192.168.1.77
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.77 # A1
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.77 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.77 # A4
-route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.77 # A5
-route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.1.77 # A6
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.77 # A1
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.77 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.77 # A4
+		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.77 # A5
+		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.1.77 # A6
 ```
 
 **702**
-
-Config
 
 ```bash
 auto eth0
@@ -182,21 +178,15 @@ iface eth0 inet static
         netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **703**
-
-Config
 
 ```bash
 auto eth0
@@ -205,21 +195,15 @@ iface eth0 inet static
         netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **704**
-
-Config
 
 ```bash
 auto eth0
@@ -228,21 +212,15 @@ iface eth0 inet static
         netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **705**
-
-Config
 
 ```bash
 auto eth0
@@ -251,21 +229,15 @@ iface eth0 inet static
         netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **LabSOC**
-
-Config
 
 ```bash
 auto eth0
@@ -274,21 +246,15 @@ iface eth0 inet static
         netmask 255.255.255.192
         gateway 192.168.1.2
 		up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
-route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
-route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
+		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
+		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
 
 **LabKCKS**
-
-Config
 
 ```bash
 auto eth0
@@ -297,14 +263,10 @@ iface eth0 inet static
         netmask 255.255.255.192
         gateway 192.168.1.2
 		up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
 
-IP Route
-
-```bash
-route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
-route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
-route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
-route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
-route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
+		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
+		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
+		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
+		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
+		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
