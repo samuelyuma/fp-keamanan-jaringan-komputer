@@ -270,3 +270,5 @@ iface eth0 inet static
 		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
 		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
+### Nomor 3 (Teknik Keamanan Jaringan)
+Metode keamanan jaringan yang kami gunakan adalah IDS, yaitu software Snort. Berikut adalah [dokumentasi](https://docs.google.com/document/d/1qznaNv0Q8HxGDW1u2h4bEfzOaDA-hPiYdFjmXAyTG8c/edit?usp=sharing) pengerjaan untuk nomor 3.
