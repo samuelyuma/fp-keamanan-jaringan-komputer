@@ -34,22 +34,22 @@ Pengerjaan dilakukan dengan menggunakan software [GNS3](https://www.gns3.com/).
 | A1          | DPTSI > Perpustakaan                                                  | 2         | /30     |
 | A2          | Perpustakaan > Switch 1 > WebService                                  | 2         | /30     |
 | A3          | DPTSI > TW2                                                           | 2         | /30     |
-| A4          | TW2 > Lantai7 > Lantai9                                               | 3         | /29     |
-| A5          | Lantai7 > Switch2 > 702 > Switch2 > 703 > Switch2 > 704 Switch2 > 705 | 161       | /24     |
-| A6          | TW2 > Lantai9 > Switch3 > LabSOC > Switch3 > LabKCKS                  | 51       | /26     |
+| A4          | TW2 >Switch2 > Lantai7 > Switch2 > Lantai9                            | 3         | /29     |
+| A5          | Lantai7 > Switch3 > 702 > Switch3 > 703 > Switch2 > 704 Switch3 > 705 | 161       | /24     |
+| A6          | Lantai9 > Switch4 > LabSOC > Switch4 > LabKCKS                        | 51        | /26     |
 
 ### Pembagian IP
 
-| Subnet | Network ID    | Netmask         | Broadcast     | Range IP                      |
-| ------ | ------------- | --------------- | ------------- | ----------------------------- |
-| A1     | 192.168.1.72  | 255.255.255.252 | 192.168.1.75  | 192.168.1.73 - 192.168.1.74   |
-| A2     | 192.168.1.76  | 255.255.255.252 | 192.168.1.79  | 192.168.1.77 - 192.168.1.78   |
-| A3     | 192.168.1.80  | 255.255.255.252 | 192.168.1.83  | 192.168.1.81 - 192.168.1.82   |
-| A4     | 192.168.1.64  | 255.255.255.248 | 192.168.1.71  | 192.168.1.65 - 192.168.1.70   |
-| A5     | 192.168.0.0   | 255.255.255.0   | 192.168.0.255 | 192.168.0.1 - 192.168.0.254   |
-| A6     | 192.168.1.0   | 255.255.255.192 | 192.168.1.63  | 192.168.1.1 - 192.168.1.62    |
+| Subnet | Network ID   | Netmask         | Broadcast     | Range IP                    |
+| ------ | ------------ | --------------- | ------------- | --------------------------- |
+| A1     | 192.168.1.72 | 255.255.255.252 | 192.168.1.75  | 192.168.1.73 - 192.168.1.74 |
+| A2     | 192.168.1.76 | 255.255.255.252 | 192.168.1.79  | 192.168.1.77 - 192.168.1.78 |
+| A3     | 192.168.1.80 | 255.255.255.252 | 192.168.1.83  | 192.168.1.81 - 192.168.1.82 |
+| A4     | 192.168.1.64 | 255.255.255.248 | 192.168.1.71  | 192.168.1.65 - 192.168.1.70 |
+| A5     | 192.168.0.0  | 255.255.255.0   | 192.168.0.255 | 192.168.0.1 - 192.168.0.254 |
+| A6     | 192.168.1.0  | 255.255.255.192 | 192.168.1.63  | 192.168.1.1 - 192.168.1.62  |
 
-### Konfigurasi Jaringan Setiap Node
+### Konfigurasi Jaringan
 
 **DPTSI**
 
@@ -57,18 +57,18 @@ Pengerjaan dilakukan dengan menggunakan software [GNS3](https://www.gns3.com/).
 enable
 configure terminal
 
-interface f1/0 # A1
- ip address 192.168.0.209 255.255.255.252
+interface f1/0 # A1 (Perpustakaan)
+ ip address 192.168.1.73 255.255.255.252
  no shutdown
 
-interface f2/0 # A3
- ip address 192.168.0.201 255.255.255.252
+interface f2/0 # A3 (TW2)
+ ip address 192.168.1.81 255.255.255.252
  no shutdown
 
-ip route 192.168.0.204 255.255.255.252 192.168.0.210 # Ke A2 (via Perpustakaan)
-ip route 192.168.0.192 255.255.255.248 192.168.0.202 # Ke A4 (via TW2)
-ip route 192.168.0.0 255.255.255.128 192.168.0.202   # Ke A5 (via TW2)
-ip route 192.168.0.128 255.255.255.192 192.168.0.202 # Ke A6 (via TW2)
+ip route 192.168.1.76 255.255.255.252 192.168.1.74 # Ke A2 (via Perpustakaan)
+ip route 192.168.1.64 255.255.255.248 192.168.1.82 # Ke A4 (via TW2)
+ip route 192.168.0.0 255.255.255.0 192.168.1.82   # Ke A5 (via TW2)
+ip route 192.168.1.0 255.255.255.192 192.168.1.82 # Ke A6 (via TW2)
 ```
 
 **Perpustakaan**
@@ -77,18 +77,18 @@ ip route 192.168.0.128 255.255.255.192 192.168.0.202 # Ke A6 (via TW2)
 enable
 configure terminal
 
-interface f0/0 # A1
- ip address 192.168.0.210 255.255.255.252
+interface f0/0 # A1 (DPTSI)
+ ip address 192.168.1.74 255.255.255.252
  no shutdown
 
-interface f1/0 # A2
- ip address 192.168.0.205 255.255.255.252
+interface f1/0 # A2 (WebService via Switch1)
+ ip address 192.168.1.77 255.255.255.252
  no shutdown
 
-ip route 0.0.0.0 0.0.0.0 192.168.0.209 # Default ke DPTSI
-ip route 192.168.0.192 255.255.255.248 192.168.0.209 # Ke A4 (via DPTSI)
-ip route 192.168.0.0 255.255.255.128 192.168.0.209   # Ke A5 (via DPTSI)
-ip route 192.168.0.128 255.255.255.192 192.168.0.209 # Ke A6 (via DPTSI)
+ip route 0.0.0.0 0.0.0.0 192.168.1.73 # Default ke DPTSI
+ip route 192.168.1.64 255.255.255.248 192.168.1.73 # Ke A4 (via DPTSI)
+ip route 192.168.0.0 255.255.255.128 192.168.1.73   # Ke A5 (via DPTSI)
+ip route 192.168.1.0 255.255.255.192 192.168.1.73 # Ke A6 (via DPTSI)
 ```
 
 **TW2**
@@ -97,22 +97,17 @@ ip route 192.168.0.128 255.255.255.192 192.168.0.209 # Ke A6 (via DPTSI)
 enable
 configure terminal
 
-interface f0/0 # A3
- ip address 192.168.0.202 255.255.255.252
+interface f0/0 # A3 (DPTSI)
+ ip address 192.168.1.82 255.255.255.252
  no shutdown
 
-interface f1/0 # A4
- ip address 192.168.0.193 255.255.255.248
+interface f1/0 # A4 (Lantai7 & Lantai9 via Switch2)
+ ip address 192.168.1.65 255.255.255.248
  no shutdown
 
-interface f2/0 # A6
- ip address 192.168.0.129 255.255.255.192
- no shutdown
-
-ip route 0.0.0.0 0.0.0.0 192.168.0.201 # Default ke DPTSI
-ip route 192.168.0.208 255.255.255.252 192.168.0.201 # Ke A1 (via DPTSI)
-ip route 192.168.0.204 255.255.255.252 192.168.0.201 # Ke A2 (via DPTSI)
-ip route 192.168.0.0 255.255.255.128 192.168.0.194   # Ke A5 (via Lantai7)
+ip route 0.0.0.0 0.0.0.0 192.168.1.81 # Default ke DPTSI
+ip route 192.168.1.72 255.255.255.252 192.168.1.81 # Ke A1 (via DPTSI)
+ip route 192.168.1.76 255.255.255.252 192.168.1.81 # Ke A2 (via DPTSI)
 ```
 
 **Lantai7**
@@ -121,18 +116,18 @@ ip route 192.168.0.0 255.255.255.128 192.168.0.194   # Ke A5 (via Lantai7)
 enable
 configure terminal
 
-interface f0/0 # A4
- ip address 192.168.0.194 255.255.255.248
+interface f0/0 # A4 (TW2)
+ ip address 192.168.1.66 255.255.255.248
  no shutdown
 
-interface f1/0 # A5
- ip address 192.168.0.1 255.255.255.128
+interface f1/0 # A5 (Kelas 702-705 via Switch3)
+ ip address 192.168.0.1 255.255.255.0
  no shutdown
 
-ip route 0.0.0.0 0.0.0.0 192.168.0.193 # Default ke TW2
-ip route 192.168.0.208 255.255.255.252 192.168.0.193 # Ke A1 (via TW2)
-ip route 192.168.0.204 255.255.255.252 192.168.0.193 # Ke A2 (via TW2)
-ip route 192.168.0.128 255.255.255.192 192.168.0.193 # Ke A6 (via TW2)
+ip route 0.0.0.0 0.0.0.0 192.168.1.65 # Default ke TW2
+ip route 192.168.1.72 255.255.255.252 192.168.1.65 # Ke A1 (via TW2)
+ip route 192.168.1.76 255.255.255.252 192.168.1.65 # Ke A2 (via TW2)
+ip route 192.168.1.0 255.255.255.192 192.168.1.65 # Ke A6 (via TW2)
 ```
 
 **Lantai9**
@@ -141,18 +136,18 @@ ip route 192.168.0.128 255.255.255.192 192.168.0.193 # Ke A6 (via TW2)
 enable
 configure terminal
 
-interface f0/0 # A4
- ip address 192.168.0.195 255.255.255.192
+interface f0/0 # A4 (TW2)
+ ip address 192.168.1.67 255.255.255.248
  no shutdown
 
-interface f1/0 # A6
- ip address 192.168.0.130 255.255.255.192
+interface f1/0 # A6 (Lab via Switch4)
+ ip address 192.168.1.2 255.255.255.192
  no shutdown
 
-ip route 0.0.0.0 0.0.0.0 192.168.0.129 # Default ke TW2
-ip route 192.168.0.208 255.255.255.252 192.168.0.129 # Ke A1 (via TW2)
-ip route 192.168.0.204 255.255.255.252 192.168.0.129 # Ke A2 (via TW2)
-ip route 192.168.0.192 255.255.255.248 192.168.0.129 # Ke A4 (via TW2)
+ip route 0.0.0.0 0.0.0.0 192.168.1.65 # Default ke TW2
+ip route 192.168.1.72 255.255.255.252 192.168.1.65 # Ke A1 (via TW2)
+ip route 192.168.1.76 255.255.255.252 192.168.1.65 # Ke A2 (via TW2)
+ip route 192.168.0.0 255.255.255.0 192.168.1.65 # Ke A5 (via TW2)
 ```
 
 **WebService**
@@ -160,74 +155,156 @@ ip route 192.168.0.192 255.255.255.248 192.168.0.129 # Ke A4 (via TW2)
 ```bash
 auto eth0
 iface eth0 inet static
-        address 192.168.0.206
+        address 192.168.1.78
         netmask 255.255.255.252
-        gateway 192.168.0.205
+        gateway 192.168.1.77
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ```
 
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.77 # A1
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.77 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.77 # A4
+route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.77 # A5
+route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.1.77 # A6
+```
+
 **702**
+
+Config
 
 ```bash
 auto eth0
 iface eth0 inet static
         address 192.168.0.2
-        netmask 255.255.255.128
+        netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ```
 
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+```
+
 **703**
+
+Config
 
 ```bash
 auto eth0
 iface eth0 inet static
         address 192.168.0.3
-        netmask 255.255.255.128
+        netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ```
 
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+```
+
 **704**
+
+Config
 
 ```bash
 auto eth0
 iface eth0 inet static
         address 192.168.0.4
-        netmask 255.255.255.128
+        netmask 255.255.255.0
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ```
 
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+```
+
 **705**
+
+Config
 
 ```bash
 auto eth0
 iface eth0 inet static
-        address 192.168.0.196
-        netmask 255.255.255.248
-        gateway 192.168.0.193
+        address 192.168.0.5
+        netmask 255.255.255.0
+        gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
+```
+
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **LabSOC**
 
+Config
+
 ```bash
 auto eth0
 iface eth0 inet static
-        address 192.168.0.131
+        address 192.168.1.3
         netmask 255.255.255.192
-        gateway 192.168.0.129
-        up echo nameserver 8.8.8.8 > /etc/resolv.conf
+        gateway 192.168.1.2
+		up echo nameserver 8.8.8.8 > /etc/resolv.conf
+```
+
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
+route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
+route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
 
 **LabKCKS**
 
+Config
+
 ```bash
 auto eth0
 iface eth0 inet static
-        address 192.168.0.132
+        address 192.168.1.4
         netmask 255.255.255.192
-        gateway 192.168.0.129
-        up echo nameserver 8.8.8.8 > /etc/resolv.conf
+        gateway 192.168.1.2
+		up echo nameserver 8.8.8.8 > /etc/resolv.conf
+```
+
+IP Route
+
+```bash
+route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
+route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
+route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
+route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
+route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
