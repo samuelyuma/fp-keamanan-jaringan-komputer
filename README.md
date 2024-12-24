@@ -25,7 +25,7 @@ Pengerjaan dilakukan dengan menggunakan software [GNS3](https://www.gns3.com/).
 
 ### Topologi
 
-![Topologi](https://github.com/user-attachments/assets/f29f0a92-3457-4f14-acdd-8116563040c2)
+![topo_kjk_rev](https://github.com/user-attachments/assets/109e051d-9511-420a-b0d4-87502018dd35)
 
 ### Rute dan Area Subnet
 
