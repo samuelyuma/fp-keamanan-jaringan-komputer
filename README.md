@@ -162,11 +162,11 @@ iface eth0 inet static
         gateway 192.168.1.77
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.77 # A1
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.77 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.77 # A4
-		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.77 # A5
-		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.1.77 # A6
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.77 # A1
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.77 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.77 # A4
+        up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.77 # A5
+        up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.1.77 # A6
 ```
 
 **702**
@@ -179,11 +179,11 @@ iface eth0 inet static
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+        up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+        up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **703**
@@ -196,11 +196,11 @@ iface eth0 inet static
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+        up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+        up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **704**
@@ -213,11 +213,11 @@ iface eth0 inet static
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+        up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+        up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **705**
@@ -230,11 +230,11 @@ iface eth0 inet static
         gateway 192.168.0.1
         up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
-		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
-		up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.0.1 # A1
+        up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.0.1 # A2
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.0.1 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.0.1 # A4
+        up route add -net 192.168.1.0  netmask 255.255.255.192 gw 192.168.0.1 # A6
 ```
 
 **LabSOC**
@@ -245,13 +245,13 @@ iface eth0 inet static
         address 192.168.1.3
         netmask 255.255.255.192
         gateway 192.168.1.2
-		up echo nameserver 8.8.8.8 > /etc/resolv.conf
+        up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
-		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
-		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
+        up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
+        up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
 
 **LabKCKS**
@@ -262,13 +262,15 @@ iface eth0 inet static
         address 192.168.1.4
         netmask 255.255.255.192
         gateway 192.168.1.2
-		up echo nameserver 8.8.8.8 > /etc/resolv.conf
+        up echo nameserver 8.8.8.8 > /etc/resolv.conf
 
-		up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
-		up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
-		up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
-		up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
-		up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
+        up route add -net 192.168.1.72 netmask 255.255.255.252 gw 192.168.1.2 # A1
+        up route add -net 192.168.1.76 netmask 255.255.255.252 gw 192.168.1.2 # A2
+        up route add -net 192.168.1.80 netmask 255.255.255.252 gw 192.168.1.2 # A3
+        up route add -net 192.168.1.64 netmask 255.255.255.248 gw 192.168.1.2 # A4
+        up route add -net 192.168.0.0  netmask 255.255.255.0   gw 192.168.1.2 # A5
 ```
+
 ### Nomor 3 (Teknik Keamanan Jaringan)
+
 Metode keamanan jaringan yang kami gunakan adalah IDS, yaitu software Snort. Berikut adalah [dokumentasi](https://docs.google.com/document/d/1qznaNv0Q8HxGDW1u2h4bEfzOaDA-hPiYdFjmXAyTG8c/edit?usp=sharing) pengerjaan untuk nomor 3.
