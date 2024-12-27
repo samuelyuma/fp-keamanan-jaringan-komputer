@@ -274,3 +274,15 @@ iface eth0 inet static
 ### Nomor 3 (Teknik Keamanan Jaringan)
 
 Metode keamanan jaringan yang kami gunakan adalah IDS, yaitu software Snort. Berikut adalah [dokumentasi](https://docs.google.com/document/d/1qznaNv0Q8HxGDW1u2h4bEfzOaDA-hPiYdFjmXAyTG8c/edit?usp=sharing) pengerjaan untuk nomor 3.
+
+### Nomor 4 (Simulasi Serangan)
+
+Simulasi serangan pada jaringan dilakukan melalui host pada lab KCKS (192.168.1.4) dengan menyerang web service (192.168.1.78) pada perpustakaan. 
+
+
+Tiga serangan yang dilakukan adalah sebagai berikut:
+1. DDoS (Distributed Denial of Service) menggunakan hping3: Serangan siber yang bertujuan untuk mengganggu layanan jaringan dan membuat situs web tidak dapat diakses. 
+2. SQL Injection menggunakan sqlmap: Teknik serangan yang dilakukan dengan menyisipkan kode SQL berbahaya ke dalam input data yang disediakan oleh pengguna. Serangan ini bertujuan untuk mengakses, memanipulasi, atau menghapus data dalam basis data.
+3. Authentication Brute Force menggunakan hydra: Metode serangan siber yang dilakukan dengan mencoba berbagai kombinasi kata sandi atau PIN secara berulang-ulang untuk mendapatkan akses ke akun atau sistem.
+
+Dokumentasi pengerjaan terdapat pada docs.
