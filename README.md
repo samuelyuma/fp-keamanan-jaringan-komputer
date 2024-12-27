@@ -19,6 +19,9 @@ Teknologi Informasi memiliki sebuah jaringan komputer dengan detail sebagai beri
 -   di lantai 9, memiliki 2 ruang lab, yang terdiri dari 25 komputer (lab 1) dan 25 komputer (lab 2) dengan koneksi ethernet. selain itu juga memiliki konektivitas wifi.
 -   semua jaringan terhubung oleh router utama (backbone) yang diletakkan di gedung riset center di DPTSI.
 
+### Disclaimer
+Karena suatu keterbatasan dalam software GNS3, konfigurasi tidak dapat tersimpan meskipun file project sudah disimpan. Maka dari itu, diperlukan konfigurasi IP, routing, dan sebagainya seperti pada sections bawah ini. 
+
 ## Pengerjaan
 
 Pengerjaan dilakukan dengan menggunakan software [GNS3](https://www.gns3.com/).
@@ -273,7 +276,7 @@ iface eth0 inet static
 
 ### Nomor 3 (Teknik Keamanan Jaringan)
 
-Metode keamanan jaringan yang kami gunakan adalah IDS, yaitu software Snort. Berikut adalah [dokumentasi](https://docs.google.com/document/d/1qznaNv0Q8HxGDW1u2h4bEfzOaDA-hPiYdFjmXAyTG8c/edit?usp=sharing) pengerjaan untuk nomor 3.
+Metode keamanan jaringan yang kami gunakan adalah IDS, yaitu software Snort. Selain itu, digunakan juga ACL untuk mencegah DoS/DDoS. Berikut adalah [dokumentasi](https://docs.google.com/document/d/1N6E2bgd3dOFtVqaktRdVf2aGhqqi3tcV74-BPk4O8dU/edit?usp=sharing), tepatnya section **Nomor 3 (Teknik Keamanan Jaringan)** untuk langkah-langkah pengerjaan untuk nomor 3.
 
 ### Nomor 4 (Simulasi Serangan)
 
@@ -285,4 +288,4 @@ Tiga serangan yang dilakukan adalah sebagai berikut:
 2. SQL Injection menggunakan sqlmap: Teknik serangan yang dilakukan dengan menyisipkan kode SQL berbahaya ke dalam input data yang disediakan oleh pengguna. Serangan ini bertujuan untuk mengakses, memanipulasi, atau menghapus data dalam basis data.
 3. Authentication Brute Force menggunakan hydra: Metode serangan siber yang dilakukan dengan mencoba berbagai kombinasi kata sandi atau PIN secara berulang-ulang untuk mendapatkan akses ke akun atau sistem.
 
-Dokumentasi pengerjaan terdapat pada docs.
+Dokumentasi pengerjaan terdapat pada [docs](https://docs.google.com/document/d/1N6E2bgd3dOFtVqaktRdVf2aGhqqi3tcV74-BPk4O8dU/edit?usp=sharing), tepatnya section **Nomor 4 (Simulasi Serangan)**.
