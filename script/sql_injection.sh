@@ -1,1 +1,1 @@
-sqlmap -u "http://192.168.1.78/api/v1/auth/login" --data '{"user_email": "admin@mail.com","user_password": "password"}' --headers="Content-Type: application/json, Accept: application/json"
+python3 sqlmap.py -u "http://192.168.1.78/api/v1/auth/login" --data 'user_email=admin@mail.com&user_password=password' --headers="User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0"
